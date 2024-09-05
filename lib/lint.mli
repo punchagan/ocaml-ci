@@ -16,9 +16,6 @@ val doc_spec :
 (** A build spec that checks that the documentation in [./src/] builds without
     warnings. *)
 
-val opam_lint_spec : base:string -> opam_files:string list -> Obuilder_spec.t
-(** A build spec that lints the dune and opam files for common errors. *)
-
 val opam_dune_lint_spec :
   base:string ->
   opam_files:string list ->

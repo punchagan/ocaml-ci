@@ -129,13 +129,3 @@ let opam_dune_lint_spec ~base ~opam_files ~selection =
       run "opam lint";
       run "opam exec -- opam-dune-lint";
     ]
-
-let opam_lint_spec ~base ~opam_files =
-  let open Obuilder_spec in
-  stage ~from:base
-    [
-      user_unix ~uid:1000 ~gid:1000;
-      workdir "src";
-      copy [ "./" ] ~dst:"./";
-      run "opam lint %s" (String.concat " " opam_files);
-    ]
